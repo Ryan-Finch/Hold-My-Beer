@@ -14,20 +14,20 @@
   </header>  
   <ul class="nav justify-content-center">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Search</a>
+      <a class="nav-link active" href="/recipes/">Search</a>
     </li>
     <li class="nav-item">
       <%if(user){ %>
-        <a class="nav-link" href="#">Create</a>
+        <a class="nav-link" href="/recipes/new">Create</a>
       <%}else{%>
         <a class="nav-link" href="#" hidden>Create</a>
       <%}%>
     </li>
     <li class="nav-item">
       <%if(user){ %>
-        <a class="nav-link" href="/<%=user._id%>">User</a>
+        <a class="nav-link" href="/users/<%=user._id%>">User</a>
       <%}else{%>
-        <a class="nav-link" href="/<%=user%>" hidden>User</a>
+        <a class="nav-link" href="" hidden>User</a>
       <%}%>
     </li>
     <li class="nav-item">

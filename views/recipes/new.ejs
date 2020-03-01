@@ -1,0 +1,60 @@
+<%- include('../partials/header') %> 
+<div id="create-form">
+    <form action="/recipes/" method="POST">
+        <label>Beer Name:
+            <input type="text" name="name">
+        </label><br>
+        <label>Type:
+            <select name="" id="">
+            <option value="">Lager</option>
+            <option value="">Ale</option>
+        </select>
+        </label><br>
+        <label>Style:
+            <select name="" id="">
+            <option value="">Pale Ale</option>
+            <option value="">Ipa</option>
+        </select>
+        </label><br>
+        <label>Grains:
+            <select name="grainBill" multiple>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+            </select>
+        </label>
+        <label>QTY: 
+            <input name="grainQty" type="number">
+        </label><br>
+        <label>Hops:
+            <select name="hopBill" multiple="">
+            <option value="cascade">Cascade</option>
+            <option value="citra">Citra</option>
+        </select>
+        </label>
+        <label>QTY: 
+            <input name="hopQty"type="number">
+        </label>
+        <br>
+        <label>Boil Temp:
+            <input type="text" name="boilTemp">degrees
+        </label><br>
+        <label>Boil Time:
+            <input type="text" name="boilTime">minutes
+        </label><br>
+        <label>Fermentation Time:
+            <input type="text" name="FermTime">weeks
+        </label><br>
+        <label>Batch Size:
+            <input type="text" name="batchSize">Gallons
+        </label><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+<%- include('../partials/footer') %>

@@ -15,3 +15,11 @@ header{
   background-color: goldenrod;
   height: 10vh;
 }
+#create-form{
+  text-align: left;
+  width: 65%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}

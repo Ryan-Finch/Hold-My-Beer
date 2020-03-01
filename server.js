@@ -6,12 +6,12 @@ var logger = require('morgan');
 const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
-
+const GoogleStrategy = require('passport-google-oauth')
 require('dotenv').config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const recipeRouter = require('./routes/recipes')
+const recipeRouter = require('./routes/recipes');
 var app = express();
 
 //counnect to MongoDB here
@@ -39,7 +39,7 @@ app.use(passport.session())
 
 //Mount Routes here
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/', recipeRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
