@@ -1,8 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  box-sizing: border-box;
+  margin: 0;
 }
-
-a {
-  color: #00B7FF;
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-image: url('../images/beer-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; */
+  background: grey;
+  height: 100vh;
+  text-align: center;
+}
+header{
+  background-color: goldenrod;
+  height: 10vh;
 }
