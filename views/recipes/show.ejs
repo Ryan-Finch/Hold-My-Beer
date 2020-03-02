@@ -1,20 +1,21 @@
 <%- include('../partials/header') %> 
 
-
-    <%= recipe.name%>
-    <%= recipe.type%>
-    <%= recipe.style%>
-    <%= recipe.grainBill%>
-    <%= recipe.grainQty%>
-    <%= recipe.hopBill%>
-    <%= recipe.hopQty%>
-    <%= recipe.adjuncts%>
-    <%= recipe.fermTime%>
-    <%= recipe.boilTime%>
-    <%= recipe.boilTemp%>
-    <br>
-    <br>
-    <% if( user && user.id === recipe.user.id){%>
+<div id="show-grid">
+    <div id="show-recipe">
+        <p>Beer Name: <%= recipe.name%></p>
+        <p>Type: <%= recipe.type%></p>
+        <p>Style: <%= recipe.style%></p>
+        <p>Grain Used: <%= recipe.grainBill%>, <%= recipe.grainQty%>lbs</p>
+        <p>Hops Used: <%= recipe.hopBill%>, <%= recipe.hopQty%>lb/lbs</p>
+        <p>Adjuncts Used: <%= recipe.adjuncts%></p>
+        <p>Fermentation Time: <%= recipe.fermTime%> Weeks</p>
+        <p>Boil Time: <%= recipe.boilTime%> minutes</p>
+        <p>Boil Temp: <%= recipe.boilTemp%> degrees</p>
+        <br>
+        <br>
+    </div>
+</div>
+    <% if( user.id === recipe.user.toString()){%>
     <form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
     </form>

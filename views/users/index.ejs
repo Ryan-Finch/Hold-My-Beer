@@ -1,14 +1,37 @@
 <%- include('../partials/header') %> 
 
-<%= user.name %> 
-<br>
-<% recipes.forEach(function(r){ %>
-    <%= r.name%>
-    <form action="/recipes/<%= r.id%>?_method=DELETE" method="POST">
-        <label for="">
-            <button type="submit">Delete</button> <a href="/users/<%= r.id%>" >Update</a>
-        </label>    
-    </form>
-    
-    <%})%>
+<div id="user-page">
+    <div id="profile-container">
+        <div>
+            <%= user.name %>
+        </div>
+        <img src="<%= user.avatar%>" alt="">
+        <br>
+        <div>
+            <%= user.email%>
+        </div>
+    </div> 
+
+  
+
+    <div id="user-recipe-container">
+        <div id="user-recipe-title">
+            <p>Your Recipes</p>
+        </div>
+        <% recipes.forEach(function(r){ %>
+        <div id="user-recipe-card">
+            <div id="card-name">
+                <p><%=r.name%></p>
+            </div>
+            <form action="/recipes/<%= r.id%>?_method=DELETE" method="POST">
+                <label for="">
+                    <button type="submit">Delete</button> 
+                </label>    
+            </form>
+            <a href="/users/<%= r.id%>" >Update</a>
+        </div>
+        
+        <%})%>
+    </div>
+</div>
 <%- include('../partials/footer') %>

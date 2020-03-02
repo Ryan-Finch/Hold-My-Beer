@@ -65,7 +65,9 @@ function show(req,res){
     console.log('connection: show')
     const user = req.user;
     Recipe.findById(req.params.id, function(err, recipe){
+        
        if(err) console.log(err)
+      
     res.render('recipes/show', {
         recipe,
         user,
