@@ -1,3 +1,22 @@
 <%- include('../partials/header') %> 
 
+
+    <%= recipe.name%>
+    <%= recipe.type%>
+    <%= recipe.style%>
+    <%= recipe.grainBill%>
+    <%= recipe.grainQty%>
+    <%= recipe.hopBill%>
+    <%= recipe.hopQty%>
+    <%= recipe.adjuncts%>
+    <%= recipe.fermTime%>
+    <%= recipe.boilTime%>
+    <%= recipe.boilTemp%>
+    <br>
+    <br>
+    <% if( user && user.id === recipe.user.id){%>
+    <form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+    <%}%>
 <%- include('../partials/footer') %>

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-// const User = require('../models/user')
+const User = require('../models/user')
 const Schema = mongoose.Schema
 
 const recipeSchema = new Schema({
@@ -12,16 +12,23 @@ const recipeSchema = new Schema({
         required: true
     },
     style: String,
+    
     grainBill: [{
         type: String,
-        qty: Number,
         required: true
     }],
+    grainQty:{
+        type: Number,
+        required: true
+    },
     hopBill: [{
         type: String,
-        qty: Number,
         required: true
     }],
+    hopQty:{
+        type: Number,
+        required: true
+    },
     adjuncts: String,
     batchSize: {
         type: Number,
@@ -35,7 +42,7 @@ const recipeSchema = new Schema({
         type: Number,
         require: true
     },
-    boiTime: {
+    boilTime: {
         type: Number,
         required: true
     },

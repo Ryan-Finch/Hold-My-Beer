@@ -5,15 +5,15 @@
             <input type="text" name="name">
         </label><br>
         <label>Type:
-            <select name="" id="">
-            <option value="">Lager</option>
-            <option value="">Ale</option>
+            <select name="type" id="">
+            <option value="Lager">Lager</option>
+            <option value="Ale">Ale</option>
         </select>
         </label><br>
         <label>Style:
-            <select name="" id="">
-            <option value="">Pale Ale</option>
-            <option value="">Ipa</option>
+            <select name="style" id="">
+            <option value="Pale Ale">Pale Ale</option>
+            <option value="Ipa">Ipa</option>
         </select>
         </label><br>
         <label>Grains:
@@ -41,6 +41,9 @@
             <input name="hopQty"type="number">
         </label>
         <br>
+        <label>Adjuncts:
+            <input type="text" name="adjuncts">degrees
+        </label><br>
         <label>Boil Temp:
             <input type="text" name="boilTemp">degrees
         </label><br>
@@ -53,6 +56,7 @@
         <label>Batch Size:
             <input type="text" name="batchSize">Gallons
         </label><br>
+        <input type="hidden" name="user" value="<%=user.id%>">
         <input type="submit" value="Submit">
     </form>
 

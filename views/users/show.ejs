@@ -1,5 +1,72 @@
 <%- include('../partials/header') %> 
 
-<%= user.name %> 
+<div id="create-form">
+    <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+        <label>Beer Name:
+            <input type="text" name="name" value="<%= recipe.name%>">
+        </label><br>
+        <label>Type:
+            <select name="type" value="<%= recipe.type%>">
+                <option value="Lager">Lager</option>
+                <option value="Ale">Ale</option>
+            </select>
+        </label><br>
+        <label>Style:
+            <select name="style" value="<%= recipe.style%>">
+                <option value="Pale Ale">Pale Ale</option>
+                <option value="Ipa">Ipa</option>
+            </select>
+        </label><br>
+        <label>Grains:
+            <select name="grainBill" multiple value="<%= recipe.grainBill%>">
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+                <option value="2-Row">2-Row</option>
+                <option value="2-Row">Crystal</option>
+            </select>
+        </label>
+        <label>QTY: 
+            <input name="grainQty" type="number" value="<%= recipe.grainQty%>">
+        </label><br>
+        <label>Hops:
+            <select name="hopBill" multiple="" value="<%= recipe.hopBill%>">
+            <option value="cascade">Cascade</option>
+            <option value="citra">Citra</option>
+        </select>
+        </label>
+        <label>QTY: 
+            <input name="hopQty"type="number" value="<%= recipe.hopQty%>">
+        </label>
+        <br>
+        <label>Adjuncts:
+            <input type="text" name="adjuncts" value="<%= recipe.adjuncts%>">degrees
+        </label><br>
+        <label>Boil Temp:
+            <input type="text" name="boilTemp" value="<%= recipe.boilTemp%>">degrees
+        </label><br>
+        <label>Boil Time:
+            <input type="text" name="boilTime" value="<%= recipe.boilTime%>">minutes
+        </label><br>
+        <label>Fermentation Time:
+            <input type="text" name="fermTime" value="<%= recipe.fermTime%>">weeks
+        </label><br>
+        <label>Batch Size:
+            <input type="text" name="batchSize" value="<%= recipe.batchSize%>">Gallons
+        </label><br>
+        <input type="hidden" name="user" value="<%=recipe.user%>">
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+    <br>
+    <br>
+
+<form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+</form>
 
 <%- include('../partials/footer') %>

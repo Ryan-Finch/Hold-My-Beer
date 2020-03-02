@@ -4,7 +4,8 @@ const passport = require('passport')
 /* GET home page. */
 
 
-router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'Hold My Beer' });
+router.get('/', function(req, res, next) {
+  user = req.user;
+  res.render('index', { title: 'Hold My Beer', user });
 });
 module.exports = router;

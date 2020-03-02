@@ -1,3 +1,12 @@
 <%- include('../partials/header') %> 
 
+<% recipes.forEach(function(r){ %>
+   
+    <form action="/recipes/<%= r._id%>" method="GET">
+        <label for=""><%= r.name%>
+            <button type="submit">Check</button>
+        </label>
+    </form>
+    <%})%>
+
 <%- include('../partials/footer') %>
