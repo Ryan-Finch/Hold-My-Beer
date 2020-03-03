@@ -2,6 +2,18 @@ const mongoose = require('mongoose')
 const User = require('../models/user')
 const Schema = mongoose.Schema
 
+const commentSchema = new Schema({
+    comment: String,
+    rating:{
+        type: Number,
+        min: 1,
+        max: 5
+    }
+},
+{
+    timestamps: true,
+})
+
 const recipeSchema = new Schema({
     name: {
         type:String,
@@ -50,7 +62,9 @@ const recipeSchema = new Schema({
         type: Number,
         required: true
     },
-
+    comments: {
+        type: [commentSchema]
+    }
 }, {
     timestamps: true
 })

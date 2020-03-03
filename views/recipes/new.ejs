@@ -5,10 +5,10 @@
             <input type="text" name="name">
         </label><br>
         <label>Type:
-            <select name="type" id="">
+            <optgroup name="type" >
             <option value="Lager">Lager</option>
             <option value="Ale">Ale</option>
-        </select>
+        </optgroup>
         </label><br>
         <label>Style:
             <select name="style" id="">
@@ -29,7 +29,7 @@
             </select>
         </label>
         <label>QTY: 
-            <input name="grainQty" type="number">
+            <input name="grainQty" type="number" step=".01">
         </label><br>
         <label>Hops:
             <select name="hopBill" multiple="">
@@ -38,7 +38,7 @@
         </select>
         </label>
         <label>QTY: 
-            <input name="hopQty"type="number">
+            <input name="hopQty"type="number" step=".01">
         </label>
         <br>
         <label>Adjuncts:
