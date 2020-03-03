@@ -10,10 +10,24 @@
         <div>
             <%= user.email%>
         </div>
+    <%if(user.bio){%>
+        <div>
+            <%= user.bio%>
+            <form action="/users/<%= user.id%>">
+                <button type="submit">Update</button>
+            </form>
+        </div>
+        <%}else{%>
+            <form action="/users/<%= user.id%>?_method=PUT" method="POST">
+                <textarea name="bio" id="" cols="15" rows="3">Add a bio..</textarea>
+                <input type="submit" value="submit">
+            </form>
+        <%}%>
     </div> 
 
-  
 
+
+  <%if(recipes.length){%>
     <div id="user-recipe-container">
         <div id="user-recipe-title">
             <p>Your Recipes</p>
@@ -28,10 +42,16 @@
                     <button type="submit">Delete</button> 
                 </label>    
             </form>
-            <a href="/users/<%= r.id%>" >Update</a>
+            <form action="/recipes/<%= r.id%>" method="GET">
+                <input type="hidden">
+                <button type="submit" value="Update">View</button>
+            </form>
         </div>
         
         <%})%>
     </div>
 </div>
+<%}else{%>
+    <h4>Lets get brewing</h4>
+    <%}%>
 <%- include('../partials/footer') %>

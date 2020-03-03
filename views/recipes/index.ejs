@@ -4,9 +4,9 @@
     <div id="index-header">
         <h1>Search Recipes</h1>
     </div>
-    <form class="">
-        <input class="" type="search" placeholder="Search" aria-label="Search">
-        <button  type="submit">Search</button>
+    <form action="/recipes/">
+        <input id="search-bar" name="name" type="search" placeholder="Search" value="<%= name%>" aria-label="Search" autocomplete="off">
+        <button  type="submit">Search</button>   
       </form>
     <div id="recipe-container">
         <% recipes.forEach(function(r){ %>

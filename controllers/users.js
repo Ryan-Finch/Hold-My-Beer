@@ -5,18 +5,21 @@ module.exports ={
     index,
     show,
     home,
+    update
+}
+function update(req, res){
+    console.log('connection: update user')
+    user = req.user
+    User.findByIdAndUpdate(req.params.id, req.body, function(err){
+        res.redirect('/users/index')
+    })
 }
 function show(req,res){
     console.log('connection: user show')
     user = req.user;
-    console.log(req.params.id)
-    Recipe.findById(req.params.id, function(err, recipe){
-        console.log(recipe)
-        res.render('users/show', {
-            title: 'Edit Recipe',
-            user,
-            recipe
-        })
+    res.render('users/show', {
+        title: 'Edit Bio',
+        user,
     })
 }
 function index(req, res){

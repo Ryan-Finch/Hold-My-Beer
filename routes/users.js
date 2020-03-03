@@ -24,4 +24,5 @@ router.get('/logout', function (req,res){
 })
 router.get('/users/index', usersCtrl.index)
 router.get('/users/:id', usersCtrl.show)
+router.put('/users/:id', usersCtrl.update)
 module.exports = router;

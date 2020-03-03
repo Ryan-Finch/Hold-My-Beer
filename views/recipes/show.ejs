@@ -1,74 +1,154 @@
 <%- include('../partials/header') %> 
-
-<div id="show-grid">
-    <div id="show-recipe">
-        <p>Beer Name: <%= recipe.name%></p>
-        <p>Type: <%= recipe.type%></p>
-        <p>Style: <%= recipe.style%></p>
-        <p>Grain Used: <%= recipe.grainBill%>, <%= recipe.grainQty%>lbs</p>
-        <p>Hops Used: <%= recipe.hopBill%>, <%= recipe.hopQty%>lb/lbs</p>
-        <p>Adjuncts Used: <%= recipe.adjuncts%></p>
-        <p>Fermentation Time: <%= recipe.fermTime%> Weeks</p>
-        <p>Boil Time: <%= recipe.boilTime%> minutes</p>
-        <p>Boil Temp: <%= recipe.boilTemp%> degrees</p>
-        <br>
-        <br>
+<div id="create">
+    <div id="show-grid">
+        <div id="show-recipe">
+            <p>Beer Name: <%= recipe.name%></p>
+            <p>Type: <%= recipe.type%></p>
+            <p>Style: <%= recipe.style%></p>
+            <p>Grain Used: <%= recipe.grainBill%>, <%= recipe.grainQty%>lbs</p>
+            <p>Hops Used: <%= recipe.hopBill%>, <%= recipe.hopQty%>lb/lbs</p>
+            <p>Adjuncts Used: <%= recipe.adjuncts%></p>
+            <p>Fermentation Time: <%= recipe.fermTime%> Weeks</p>
+            <p>Boil Time: <%= recipe.boilTime%> minutes</p>
+            <p>Boil Temp: <%= recipe.boilTemp%> degrees</p>
+            <br>
+            <br>
+        </div>
     </div>
+
+
+
+        <% if(user){%>
+            <form action="/recipes/<%= recipe._id%>/comments" method="POST">
+                <label>Comment: 
+                <textarea name="comment" cols="30" rows="5">Write a Comment... but be nice....</textarea>
+                </label>
+                <label for="">Rate this Homebrew
+                    <select name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <input type="submit" value="Comment">
+                </label>
+            </form>
+
+                <% if(recipe.comments.length) {%>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Comment</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    <% let total = 0%>
+                    <% recipe.comments.forEach( c => {%>
+                        <% total += c.rating%>
+                        <tr>
+                            <td><%=c.createdAt.toLocaleDateString() %></td>
+                            <td><%=c.comment%></td>
+                            <td><%=c.rating%></td>
+                        </tr>
+                    <%})%>
+                    <tr>
+                        <td></td>
+                        <td><strong><%= (total / recipe.comments.length).toFixed(1)%></strong></td>
+                    </tr>
+                        </tbody>
+                    </table>
+                <%}else {%>
+                    <h5>Be the first to comment!</h5>
+                <% }%>
+        <%}%>
+
+
+
+
+        <% if( user && user.id === recipe.user.toString()){%>
+        <form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <input id="update-button" type="submit" value="Update">
+        <%}%>
 </div>
 
-    <form action="/recipes/<%= recipe._id%>/comments" method="POST">
-        <label>Comment: 
-        <textarea name="comment" cols="30" rows="10">Write a Comment... but be nice....</textarea>
-        </label>
-        <label for="">Rate this Homebrew
-            <select name="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+
+<div id="update">
+    <div id="create-form">
+        <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+            <label>Beer Name:
+                <input type="text" name="name" value="<%= recipe.name%>">
+            </label><br>
+            <label>Type:
+                <select name="type" value="<%= recipe.type%>">
+                    <option value="Lager">Lager</option>
+                    <option value="Ale">Ale</option>
+                </select>
+            </label><br>
+            <label>Style:
+                <select name="style" value="<%= recipe.style%>">
+                    <option value="Pale Ale">Pale Ale</option>
+                    <option value="Ipa">Ipa</option>
+                </select>
+            </label><br>
+            <label>Grains:
+                <select name="grainBill" multiple value="<%= recipe.grainBill%>">
+                    <option value="2-Row">2-Row</option>
+                    <option value="2-Row">Crystal</option>
+                    <option value="2-Row">2-Row</option>
+                    <option value="2-Row">Crystal</option>
+                    <option value="2-Row">2-Row</option>
+                    <option value="2-Row">Crystal</option>
+                    <option value="2-Row">2-Row</option>
+                    <option value="2-Row">Crystal</option>
+                </select>
+            </label>
+            <label>QTY: 
+                <input name="grainQty" type="number" value="<%= recipe.grainQty%>">
+            </label><br>
+            <label>Hops:
+                <select name="hopBill" multiple="" value="<%= recipe.hopBill%>">
+                <option value="cascade">Cascade</option>
+                <option value="citra">Citra</option>
             </select>
-            <input type="submit" value="Comment">
-        </label>
-    </form>
-
-        <% if(recipe.comments.length) {%>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Comment</th>
-                        <th>Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-            <% let total = 0%>
-            <% recipe.comments.forEach( c => {%>
-                <% total += c.rating%>
-                <tr>
-                    <td><%=c.createdAt.toLocaleDateString() %></td>
-                    <td><%=c.comment%></td>
-                    <td><%=c.rating%></td>
-                </tr>
-            <%})%>
-            <tr>
-                <td></td>
-                <td><strong><%= (total / recipe.comments.length).toFixed(1)%></strong></td>
-            </tr>
-                </tbody>
-            </table>
-        <%}else {%>
-            <h5>Be the first to comment!</h5>
-        <% }%>
+            </label>
+            <label>QTY: 
+                <input name="hopQty"type="number" value="<%= recipe.hopQty%>">
+            </label>
+            <br>
+            <label>Adjuncts:
+                <input type="text" name="adjuncts" value="<%= recipe.adjuncts%>">degrees
+            </label><br>
+            <label>Boil Temp:
+                <input type="text" name="boilTemp" value="<%= recipe.boilTemp%>">degrees
+            </label><br>
+            <label>Boil Time:
+                <input type="text" name="boilTime" value="<%= recipe.boilTime%>">minutes
+            </label><br>
+            <label>Fermentation Time:
+                <input type="text" name="fermTime" value="<%= recipe.fermTime%>">weeks
+            </label><br>
+            <label>Batch Size:
+                <input type="text" name="batchSize" value="<%= recipe.batchSize%>">Gallons
+            </label><br>
+            <input type="hidden" name="user" value="<%=recipe.user%>">
+            <input type="submit" value="Submit">
+        </form>
+    
     </div>
-
-
-
-
-
-    <% if( user.id === recipe.user.toString()){%>
+        <br>
+        <br>
+    
     <form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
+            <button type="submit">Delete</button>
     </form>
-    <%}%>
+    
+
+
+</div>
+    
 <%- include('../partials/footer') %>

@@ -64,7 +64,8 @@ const recipeSchema = new Schema({
     },
     comments: {
         type: [commentSchema]
-    }
+    },
+   
 }, {
     timestamps: true
 })
