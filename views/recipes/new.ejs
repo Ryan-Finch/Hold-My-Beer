@@ -12,20 +12,28 @@
         </label><br>
         <label>Style:
             <select name="style" >
-            <option value="Pale Ale">Pale Ale</option>
-            <option value="Ipa">Ipa</option>
+            <optgroup label="Ales">
+                <%ales.forEach( a =>{%>
+                    <option value="<%=a%>"><%=a%></option>
+                <%})%>
+            </optgroup>
+            <optgroup label="Lagers">
+                <%lagers.forEach( l =>{%>
+                    <option value="<%=l%>"><%=l%></option>
+                    <%})%>
+            </optgroup>
+            <optgroup label="Hybrids">
+                <%hybrids.forEach( h =>{%>
+                    <option value="<%=h%>"><%=h%></option>
+                    <%})%>
+            </optgroup>
         </select>
         </label><br>
         <label>Grains:
             <select name="grainBill" multiple>
-                <option value="2-Row">2-Row</option>
-                <option value="2-Row">Crystal</option>
-                <option value="2-Row">2-Row</option>
-                <option value="2-Row">Crystal</option>
-                <option value="2-Row">2-Row</option>
-                <option value="2-Row">Crystal</option>
-                <option value="2-Row">2-Row</option>
-                <option value="2-Row">Crystal</option>
+                <% grains.forEach( g =>{%>
+                <option value="<%=g%>"><%=g%></option>
+                <%})%>
             </select>
         </label>
         <label>QTY: 
@@ -33,8 +41,9 @@
         </label><br>
         <label>Hops:
             <select name="hopBill" multiple="">
-            <option value="cascade">Cascade</option>
-            <option value="citra">Citra</option>
+            <%hops.forEach( h =>{%>
+            <option value="<%=h%>"><%=h%></option>
+            <%})%>
         </select>
         </label>
         <label>QTY: 

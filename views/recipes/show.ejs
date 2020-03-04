@@ -84,27 +84,37 @@
                 <input type="text" name="name" value="<%= recipe.name%>">
             </label><br>
             <label>Type:
+                <% let value = recipe.type %>
+                <% console.log(value)%>
                 <select name="type" value="<%= recipe.type%>">
-                    <option value="Lager">Lager</option>
-                    <option value="Ale">Ale</option>
+                    <option value="Lager"<%=recipe.type==='Lager'?'Selected':''%>>Lager</option>
+                    <option value="Ale" <%=recipe.type==='Ale'?'Selected':''%>>Ale</option>
                 </select>
             </label><br>
             <label>Style:
                 <select name="style" value="<%= recipe.style%>">
-                    <option value="Pale Ale">Pale Ale</option>
-                    <option value="Ipa">Ipa</option>
+                    <optgroup label="Ales">
+                        <%ales.forEach( a =>{%>
+                            <option value="<%=a%>" <%=recipe.style === a ? 'Selected':'' %>><%=a%></option>
+                        <%})%>
+                    </optgroup>
+                    <optgroup label="Lagers">
+                        <%lagers.forEach( l =>{%>
+                            <option value="<%=l%>" <%=recipe.style === l ? 'Selected':'' %> ><%=l%></option>
+                            <%})%>
+                    </optgroup>
+                    <optgroup label="Hybrids">
+                        <%hybrids.forEach( h =>{%>
+                            <option value="<%=h%>" <%=recipe.style === h ? 'Selected':'' %> ><%=h%></option>
+                            <%})%>
+                    </optgroup>
                 </select>
             </label><br>
             <label>Grains:
                 <select name="grainBill" multiple value="<%= recipe.grainBill%>">
-                    <option value="2-Row">2-Row</option>
-                    <option value="2-Row">Crystal</option>
-                    <option value="2-Row">2-Row</option>
-                    <option value="2-Row">Crystal</option>
-                    <option value="2-Row">2-Row</option>
-                    <option value="2-Row">Crystal</option>
-                    <option value="2-Row">2-Row</option>
-                    <option value="2-Row">Crystal</option>
+                    <% grains.forEach( g =>{%>
+                        <option value="<%=g%>"><%=g%></option>
+                        <%})%>
                 </select>
             </label>
             <label>QTY: 
@@ -112,8 +122,9 @@
             </label><br>
             <label>Hops:
                 <select name="hopBill" multiple="" value="<%= recipe.hopBill%>">
-                <option value="cascade">Cascade</option>
-                <option value="citra">Citra</option>
+                    <%hops.forEach( h =>{%>
+                        <option value="<%=h%>"><%=h%></option>
+                        <%})%>
             </select>
             </label>
             <label>QTY: 

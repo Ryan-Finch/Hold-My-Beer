@@ -1,4 +1,10 @@
 const Recipe = require('../models/recipe')
+const Arrays = require('../models/arrays')
+const grains = Arrays.getAllGrains();
+const hops = Arrays.getAllHops();
+const lagers = Arrays.getAllLagers();
+const ales = Arrays.getAllAles();
+const hybrids= Arrays.getAllHybrids();
 
 module.exports = {
     new: newRecipe,
@@ -65,13 +71,27 @@ function show(req,res){
     res.render('recipes/show', {
         recipe,
         user,
-        title: 'Show Recipe'
+        title: 'Show Recipe',
+        grains,
+        hops,
+        lagers,
+        ales,
+        hybrids
     })
 })
 }
 function newRecipe(req, res){
     console.log('connection: new recipe')
     const user = req.user;
+
     res.render('recipes/new',
-     {title: 'New Recipe', user})
+     {
+    title: 'New Recipe',
+    user,
+    grains,
+    hops,
+    lagers,
+    ales,
+    hybrids,
+})
 }
