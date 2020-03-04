@@ -31,6 +31,7 @@ const recipeSchema = new Schema({
     }],
     grainQty:{
         type: Number,
+        min: .01,
         required: true
     },
     hopBill: [{
@@ -39,11 +40,13 @@ const recipeSchema = new Schema({
     }],
     hopQty:{
         type: Number,
+        min: .01,
         required: true
     },
     adjuncts: String,
     batchSize: {
         type: Number,
+        min: 1,
         default: 6,
     },
     user: {
@@ -52,14 +55,17 @@ const recipeSchema = new Schema({
     },
     fermTime: {
         type: Number,
+        min: 1,
         require: true
     },
     boilTime: {
         type: Number,
+        min: 1,
         required: true
     },
     boilTemp: {
         type: Number,
+        min: 1,
         required: true
     },
     comments: {

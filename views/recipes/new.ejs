@@ -2,16 +2,16 @@
 <div id="create-form">
     <form action="/recipes/" method="POST">
         <label>Beer Name:
-            <input type="text" name="name">
+            <input type="text" name="name" required>
         </label><br>
         <label>Type:
-            <select name="type" >
+            <select name="type"  required>
             <option value="Lager">Lager</option>
             <option value="Ale">Ale</option>
             </select>
         </label><br>
         <label>Style:
-            <select name="style" >
+            <select name="style" required>
             <optgroup label="Ales">
                 <%ales.forEach( a =>{%>
                     <option value="<%=a%>"><%=a%></option>
@@ -30,40 +30,40 @@
         </select>
         </label><br>
         <label>Grains:
-            <select name="grainBill" multiple>
+            <select name="grainBill" multiple required>
                 <% grains.forEach( g =>{%>
                 <option value="<%=g%>"><%=g%></option>
                 <%})%>
             </select>
         </label>
         <label>QTY: 
-            <input name="grainQty" type="number" step=".01">
+            <input name="grainQty" type="number" step=".01" min=".01" required>
         </label><br>
         <label>Hops:
-            <select name="hopBill" multiple="">
+            <select name="hopBill" multiple required>
             <%hops.forEach( h =>{%>
             <option value="<%=h%>"><%=h%></option>
             <%})%>
         </select>
         </label>
         <label>QTY: 
-            <input name="hopQty"type="number" step=".01">
+            <input name="hopQty"type="number" step=".01" min=".01" required>
         </label>
         <br>
         <label>Adjuncts:
             <input type="text" name="adjuncts">
         </label><br>
         <label>Boil Temp:
-            <input type="text" name="boilTemp">degrees
+            <input type="text" name="boilTemp" min="1" required>degrees
         </label><br>
         <label>Boil Time:
-            <input type="text" name="boilTime">minutes
+            <input type="text" name="boilTime" min="1" required>minutes
         </label><br>
         <label>Fermentation Time:
-            <input type="text" name="FermTime">weeks
+            <input type="text" name="FermTime" min="1" required>weeks
         </label><br>
         <label>Batch Size:
-            <input type="text" name="batchSize">Gallons
+            <input type="text" name="batchSize" min="1" required>Gallons
         </label><br>
         <input type="hidden" name="user" value="<%=user.id%>">
         <input type="submit" value="Submit">
