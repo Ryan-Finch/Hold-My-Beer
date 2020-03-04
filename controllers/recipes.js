@@ -1,10 +1,10 @@
 const Recipe = require('../models/recipe')
 const Arrays = require('../models/arrays')
-const grains = Arrays.getAllGrains();
-const hops = Arrays.getAllHops();
-const lagers = Arrays.getAllLagers();
-const ales = Arrays.getAllAles();
-const hybrids= Arrays.getAllHybrids();
+const grains = Arrays.getAllGrains().sort();
+const hops = Arrays.getAllHops().sort();
+const lagers = Arrays.getAllLagers().sort();
+const ales = Arrays.getAllAles().sort();
+const hybrids= Arrays.getAllHybrids().sort();
 
 module.exports = {
     new: newRecipe,

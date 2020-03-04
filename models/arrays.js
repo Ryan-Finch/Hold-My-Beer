@@ -16,41 +16,7 @@ function getAllHops(){
     return hops;
 }
 
-let lagers=[
-,'German-Style Pilsener'
-,'Bohemian-Style Pilsener'
-,'Munich-Style Helles'
-,'Dortmunder/European-Style Export'
-,'Vienna-Style Lager'
-,'Franconian-Style Rotbier'
-,'German-Style Maerzen'
-,'German-Style Oktoberfest/Wiesn'
-,'Munich-Style Dunkel'
-,'European-Style Dark Lager'
-,'German-Style Schwarzbier'
-,'German-Style Leichtbier'
-,'Bamberg-Style Helles Rauchbier'
-,'Bamberg-Style Maerzen Rauchbier'
-,'Bamberg-Style Bock Rauchbier'
-,'German-Style Heller Bock/Maibock'
-,'Traditional German-Style Bock'
-,'German-Style Doppelbock'
-,'German-Style Eisbock'
-,'American-Style Lager'
-,'Contemporary American-Style Lager'
-,'American-Style Light Lager'
-,'American-Style Amber Light Lager'
-,'Contemporary American-Style Light Lager'
-,'American-Style Pilsener'
-,'Contemporary American-Style Pilsener'
-,'American-Style India Pale Lager'
-,'American-Style Malt Liquor'
-,'American-Style Amber Lager'
-,'American-Style Maerzen/Oktoberfest'
-,'American-Style Dark Lager'
-,'Baltic-Style Porter'
-,'Australasian, Latin American or Tropical-Style Light Lager'
-,'International-Style Pilsener'];
+let lagers=['German-Style Pilsener','Bohemian-Style Pilsener','Munich-Style Helles','Dortmunder/European-Style Export','Vienna-Style Lager','Franconian-Style Rotbier','German-Style Maerzen','German-Style Oktoberfest/Wiesn','Munich-StyleDunkel','European-Style Dark Lager','German-Style Schwarzbier','German-Style Leichtbier','Bamberg-Style Helles Rauchbier','Bamberg-Style Maerzen Rauchbier','Bamberg-Style Bock Rauchbier','German-Style Heller Bock/Maibock','Traditional German-Style Bock','German-Style Doppelbock','German-Style Eisbock','American-Style Lager','Contemporary American-Style Lager','American-Style Light Lager','American-Style Amber Light Lager','Contemporary American-Style Light Lager','American-Style Pilsener','Contemporary American-Style Pilsener','American-Style India Pale Lager','American-Style Malt Liquor','American-Style Amber Lager','American-Style Maerzen/Oktoberfest','American-Style Dark Lager','Baltic-Style Porter','Australasian, Latin American or Tropical-Style Light Lager','International-Style Pilsener'];
 
 function getAllLagers(){
     return lagers;
