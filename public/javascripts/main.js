@@ -1,22 +1,24 @@
 
-let inputEl = document.querySelector('#search-bar')
-console.log(inputEl)
-inputEl.addEventListener('input', searchFun)
+if(document.querySelector('#search-bar')){
+    let inputEl = document.querySelector('#search-bar')
+    console.log(inputEl)
+    inputEl.addEventListener('input', searchFun)
 
-function searchFun(){
-    let recipes = document.querySelectorAll('#recipe-card');
+    function searchFun(){
+        let recipes = document.querySelectorAll('#recipe-card');
 
-    recipes.forEach( r => {
-       
-        if(r.textContent.toLowerCase().includes(inputEl.value)){
-            r.style.display = 'grid'
-        }else if(inputEl === ''){
-            r.style.display = 'grid'
-        }else{
-            r.style.display = 'none'
-        }
-    })
+        recipes.forEach( r => {
+        
+            if(r.textContent.toLowerCase().includes(inputEl.value)){
+                r.style.display = 'grid'
+            }else if(inputEl === ''){
+                r.style.display = 'grid'
+            }else{
+                r.style.display = 'none'
+            }
+        })
 
+}
 }
 if(document.getElementById('update-button')){
 

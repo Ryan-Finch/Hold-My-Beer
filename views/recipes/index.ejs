@@ -8,24 +8,26 @@
         <input id="search-bar" name="name" type="search" placeholder="Search" value="<%= name%>" aria-label="Search" autocomplete="off">
         <button  type="submit">Search</button>   
       </form>
-    <div id="recipe-container">
-        <% recipes.forEach(function(r){ %>
-        <div id="recipe-card">
-            <div id="card-name">
-                <p><%=r.name%></p>
+    <div id='box'>
+        <div id="recipe-container">
+            <% recipes.forEach(function(r){ %>
+            <div id="recipe-card">
+                <div id="card-name">
+                    <p><%=r.name%></p>
+                </div>
+                <div id="card-type">
+                    <p><%=r.type%></p>
+                </div>
+                <div id="card-style">
+                    <p><%=r.style%></p>
+                </div>
+                <div id="card-link">
+                    <a href="/recipes/<%= r._id%>">Check it Out</a> 
+                </div>
             </div>
-            <div id="card-type">
-                <p><%=r.type%></p>
-            </div>
-            <div id="card-style">
-                <p><%=r.style%></p>
-            </div>
-            <div id="card-link">
-                <a href="/recipes/<%= r._id%>">Check it Out</a> 
-            </div>
+        
+            <%})%>
         </div>
-      
-        <%})%>
     </div>
 </div>
 <%- include('../partials/footer') %>
