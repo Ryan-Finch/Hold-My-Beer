@@ -23,7 +23,6 @@ p {
 }
 #box {
   overflow: visible;
-  border: 1px black solid;
   grid-column: 1 / span 3;
   justify-self: center;
   width: 75%;

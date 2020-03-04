@@ -22,7 +22,12 @@ router.get('/logout', function (req,res){
   req.logout();
   res.redirect('/')
 })
-router.get('/users/index', usersCtrl.index)
-router.get('/users/:id', usersCtrl.show)
-router.put('/users/:id', usersCtrl.update)
+router.get('/users/index', isLoggedIn, usersCtrl.index)
+router.get('/users/:id', isLoggedIn, usersCtrl.show)
+router.put('/users/:id', isLoggedIn, usersCtrl.update)
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
 module.exports = router;
