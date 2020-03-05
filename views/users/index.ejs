@@ -14,7 +14,7 @@
         <div>
             <%= user.bio%>
             <form action="/users/<%= user.id%>">
-                <button type="submit">Update</button>
+                <button id="user-update" type="submit">Update</button>
             </form>
         </div>
         <%}else{%>
@@ -28,29 +28,29 @@
 
 
   <%if(recipes.length){%>
-    <div id="user-recipe-container">
+
+    <div id="user-box">
         <div id="user-recipe-title">
             <p>Your Recipes</p>
         </div>
-    <div id="user-box">
+
         <% recipes.forEach(function(r){ %>
-        <div id="user-recipe-card">
-            <div id="card-name">
-                <p><%=r.name%></p>
-            </div>
-            <form action="/recipes/<%= r.id%>?_method=DELETE" method="POST">
-                <label for="">
-                    <button type="submit">Delete</button> 
-                </label>    
-            </form>
-            <form action="/recipes/<%= r.id%>" method="GET">
-                <input type="hidden">
-                <button type="submit" value="Update">View</button>
-            </form>
-        </div> 
+            <a href="/recipes/<%= r._id%>">
+                <div id="user-recipe-card">
+                    <div id="card-name">
+                        <p><%=r.name%></p>
+                    </div>
+                    <form action="/recipes/<%= r.id%>?_method=DELETE" method="POST">
+                        <label for="">
+                            <button type="submit">Delete</button> 
+                        </label>    
+                    </form>
+
+                </div> 
+         </a>
         <%})%>
     </div> 
-    </div>
+
 </div>
 <%}else{%>
     <h4>Lets get brewing</h4>

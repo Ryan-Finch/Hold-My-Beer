@@ -8,7 +8,11 @@ const commentSchema = new Schema({
         type: Number,
         min: 1,
         max: 5
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 },
 {
     timestamps: true,
@@ -43,7 +47,7 @@ const recipeSchema = new Schema({
         min: .01,
         required: true
     },
-    adjuncts: String,
+    adjuncts:[String],
     batchSize: {
         type: Number,
         min: 1,

@@ -6,11 +6,11 @@
     </div>
     <form action="/recipes/">
         <input id="search-bar" name="name" type="search" placeholder="Search" value="<%= name%>" aria-label="Search" autocomplete="off">
-        <button  type="submit">Search</button>   
+        <button type="submit">Search</button>   
       </form>
-    <div id='box'>
         <div id="recipe-container">
             <% recipes.forEach(function(r){ %>
+                <a href="/recipes/<%= r._id%>">
             <div id="recipe-card">
                 <div id="card-name">
                     <p><%=r.name%></p>
@@ -22,12 +22,11 @@
                     <p><%=r.style%></p>
                 </div>
                 <div id="card-link">
-                    <a href="/recipes/<%= r._id%>">Check it Out</a> 
+                
                 </div>
             </div>
-        
+        </a> 
             <%})%>
         </div>
-    </div>
 </div>
 <%- include('../partials/footer') %>

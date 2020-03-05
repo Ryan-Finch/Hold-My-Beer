@@ -1,9 +1,5 @@
 const mongoose = require('mongoose')
 
-
-
-
-
 let grains =['CaraFoam','UK Pilsner 2 Row', 'Pilsen', 'Flaked Oats', 'Malted Oats', 'Flaked Corn', '2 Row Malt', 'Flaked Barley', '6 Row Malt', 'Golden Promise', 'Bohemian Pilsner', 'Irish Stout Malt', 'German Wheat', 'White Wheat', 'Wheat Malt', 'Carapils', 'Flaked Rye', 'Acidulated Malt', 'Red Wheat', 'Oak Smoked Wheat', 'Maris Otter', 'Kolsch Malt', 'Pale Ale', 'Vienna Malt', 'Cherrywood Beechwood Smoked Malt', 'Light Munich Malt', 'Golden Naked Oats', 'Munich Malt', 'Munich 10', 'Red X', 'Abbey Malt', 'Beechwood Smoked Malt', 'Crystal 10', 'CaraHel', 'CaraBelge', 'Crystal 20', ' CaraRed', 'Melanoidin Malt', 'Amber Malt', 'CaraVienna Malt', 'Biscuit Malt', 'Honey Malt', 'Aromatic Malt', 'Victory Malt', 'Crystal 40', 'CaraMunich I', 'Special Roast', 'CaraMunich II', 'Crystal 60', 'Brown Malt', 'Crystal 120', 'Extra Special', 'CaraAroma', 'Special B', 'Chocolate Rye', 'Roasted Barley', 'Carafa 1', 'Pale Chocolate', 'Chocolate Malt', 'Chocolate Wheat', 'Carafa II', 'Dark Chocolate Malt', 'Black Patent', 'Black Malt'];
 
 function getAllGrains(){
