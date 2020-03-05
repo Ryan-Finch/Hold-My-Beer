@@ -1,7 +1,6 @@
 
 if(document.querySelector('#search-bar')){
     let inputEl = document.querySelector('#search-bar')
-    console.log(inputEl)
     inputEl.addEventListener('input', searchFun)
 
     function searchFun(){
@@ -32,4 +31,16 @@ function showUpdate(e){
 
     update.style.display = 'block';
     create.style.display = 'none'
+}
+
+if(document.getElementById('user-update')){
+    let userUpdateEl = document.getElementById('user-update')
+    userUpdateEl.addEventListener('click', showBio)
+}
+function showBio(e){
+    let updateBio = document.getElementById('update-bio')
+    let hideBio = document.getElementById('hide-bio')
+
+    updateBio.style.display = 'block';
+    hideBio.style.display = 'none';
 }

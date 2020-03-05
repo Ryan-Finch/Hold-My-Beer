@@ -10,12 +10,15 @@
         <div>
             <%= user.email%>
         </div>
+
+
     <%if(user.bio){%>
-        <div>
+        <div id="hide-bio">
+            <p style="text-decoration: underline;">Bio</p>
             <%= user.bio%>
-            <form action="/users/<%= user.id%>">
+            
                 <button id="user-update" type="submit">Update</button>
-            </form>
+            
         </div>
         <%}else{%>
             <form action="/users/<%= user.id%>?_method=PUT" method="POST">
@@ -25,6 +28,14 @@
         <%}%>
     </div> 
 
+    <div id="update-bio">
+
+        <form action="/users/<%= user.id%>?_method=PUT" method="POST">
+            <textarea name="bio" id="" cols="15" rows="2">Add a bio..</textarea>
+            <input type="submit" value="submit">
+        </form>
+
+    </div>
 
 
   <%if(recipes.length){%>
