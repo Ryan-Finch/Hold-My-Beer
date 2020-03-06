@@ -21,19 +21,19 @@ https://trello.com/b/JoNfurjJ/project-2-hold-my-beer
 Screenshots
 
 Home Page
-![]()
+![home-page](./read-me-img/home-page.png)
 
 Search Page
-![]()
+![search-page](./read-me-img/search.png)
 
 Create Page
-![]()
+![create-page](./read-me-img/create-recipe.png)
 
 Recipe Page Wireframe
-![]()
+![show-page](./read-me-img/show.png)
 
 User Page Wireframe
-![]()
+![user-page](./read-me-img/user-page.png)
 
 
 

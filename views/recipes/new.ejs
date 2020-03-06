@@ -39,6 +39,7 @@
         <label>QTY: 
             <input name="grainQty" type="number" step=".01" min=".01" required>
         </label><br>
+        
         <label>Hops:
             <select name="hopBill" multiple required>
             <%hops.forEach( h =>{%>
@@ -68,6 +69,10 @@
         <input type="hidden" name="user" value="<%=user.id%>">
         <input type="submit" value="Submit">
     </form>
+
+    <div id="instructions">
+        <p>!!  use ctrl-click to select multiple grains/hops and use commas to seperate your different adjuncts !!</p>
+    </div>
 
 </div>
 <%- include('../partials/footer') %>
