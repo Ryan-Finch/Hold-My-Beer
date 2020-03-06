@@ -2,7 +2,7 @@
 <div id="create-form">
     <form action="/recipes/" method="POST">
         <label>Beer Name:
-            <input type="text" name="name" required>
+            <input type="text" name="name" required autocomplete="off">
         </label><br>
         <label>Type:
             <select name="type"  required>
@@ -37,7 +37,7 @@
             </select>
         </label>
         <label>QTY: 
-            <input name="grainQty" type="number" step=".01" min=".01" required>
+            <input name="grainQty" type="number" step=".01" min=".01" required autocomplete="off">
         </label><br>
         
         <label>Hops:
@@ -48,23 +48,23 @@
         </select>
         </label>
         <label>QTY: 
-            <input name="hopQty"type="number" step=".01" min=".01" required>
+            <input name="hopQty"type="number" autocomplete="off"step=".01" min=".01" required>
         </label>
         <br>
         <label>Adjuncts:
-            <input type="text" name="adjuncts">
+            <input type="text" autocomplete="off" name="adjuncts">
         </label><br>
         <label>Boil Temp:
-            <input type="text" name="boilTemp" min="1" required>degrees
+            <input type="text" autocomplete="off" name="boilTemp" min="1" required>degrees
         </label><br>
         <label>Boil Time:
-            <input type="text" name="boilTime" min="1" required>minutes
+            <input type="text" name="boilTime" autocomplete="off" min="1" required>minutes
         </label><br>
         <label>Fermentation Time:
-            <input type="text" name="fermTime" min="1" required>weeks
+            <input type="text" name="fermTime" autocomplete="off" min="1" required>weeks
         </label><br>
         <label>Batch Size:
-            <input type="text" name="batchSize" min="1" required>Gallons
+            <input type="text" name="batchSize" autocomplete="off" min="1" required>Gallons
         </label><br>
         <input type="hidden" name="user" value="<%=user.id%>">
         <input type="submit" value="Submit">

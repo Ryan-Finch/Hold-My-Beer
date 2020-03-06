@@ -80,7 +80,7 @@
         <div id="update-form">
             <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
                 <label>Beer Name:
-                    <input type="text" name="name" value="<%= recipe.name%>">
+                    <input type="text" autocomplete="off" name="name" value="<%= recipe.name%>">
                 </label><br>
                 <label>Type:
                     <% let value = recipe.type %>
@@ -116,7 +116,7 @@
                     </select>
                 </label>
                 <label>QTY: 
-                    <input name="grainQty" type="number" value="<%= recipe.grainQty%>">
+                    <input name="grainQty" autocomplete="off" type="number" value="<%= recipe.grainQty%>">
                 </label><br>
                 <label>Hops:
                     <select name="hopBill" multiple="" value="<%= recipe.hopBill%>">
@@ -126,23 +126,23 @@
                 </select>
                 </label>
                 <label>QTY: 
-                    <input name="hopQty"type="number" value="<%= recipe.hopQty%>">
+                    <input name="hopQty" autocomplete="off" type="number" value="<%= recipe.hopQty%>">
                 </label>
                 <br>
                 <label>Adjuncts:
-                    <input type="text" name="adjuncts" value="<%= recipe.adjuncts%>">degrees
+                    <input type="text" autocomplete="off" name="adjuncts" value="<%= recipe.adjuncts%>">degrees
                 </label><br>
                 <label>Boil Temp:
-                    <input type="text" name="boilTemp" value="<%= recipe.boilTemp%>">degrees
+                    <input type="text" autocomplete="off" name="boilTemp" value="<%= recipe.boilTemp%>">degrees
                 </label><br>
                 <label>Boil Time:
-                    <input type="text" name="boilTime" value="<%= recipe.boilTime%>">minutes
+                    <input type="text" autocomplete="off" name="boilTime" value="<%= recipe.boilTime%>">minutes
                 </label><br>
                 <label>Fermentation Time:
-                    <input type="text" name="fermTime" value="<%= recipe.fermTime%>">weeks
+                    <input type="text" autocomplete="off" name="fermTime" value="<%= recipe.fermTime%>">weeks
                 </label><br>
                 <label>Batch Size:
-                    <input type="text" name="batchSize" value="<%= recipe.batchSize%>">Gallons
+                    <input type="text" name="batchSize" autocomplete="off" value="<%= recipe.batchSize%>">Gallons
                 </label><br>
                 <input type="hidden" name="user" value="<%=recipe.user%>">
                 <input type="submit" value="Submit">
